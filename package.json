@@ -4,8 +4,9 @@
   "description": "webpack study record",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server"
+    "prod": "webpack",
+    "build": "webpack serve",
+    "dev": "webpack-dev-server --mode=production"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,33 @@
   },
   "homepage": "https://github.com/Ankera/webpack5#readme",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
+    "less-loader": "^11.0.0",
+    "node-loader": "^2.0.0",
+    "postcss": "^8.4.16",
+    "postcss-loader": "^7.0.1",
+    "postcss-preset-env": "^7.8.1",
+    "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "jquery": "^3.6.1"
   }
 }

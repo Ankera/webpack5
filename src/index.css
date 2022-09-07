@@ -1,5 +1,12 @@
 @import './base.css';
+/* @import './base.less';
+@import './base.scss'; */
 
 body {
   color: blue;
+}
+
+.container {
+  color: aquamarine;
+  opacity: 0.5;
 }

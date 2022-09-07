@@ -1,4 +1,15 @@
 body {
-  background-color: red;
   font-size: 36px;
+
+}
+
+.container {
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(@/logo.jpg);
+  display: flex;
+  transition: all 0.5s;
+  transform: rotate(90deg);
 }
