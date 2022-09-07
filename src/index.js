@@ -1,9 +1,4 @@
-import $ from 'jquery'
+// import './index.css';
+import lodash from 'lodash';
 
-import './index.css';
-
-
-const name = "Tom";
-
-$.inArray([])
-
+console.log('================================', isarray([]))
