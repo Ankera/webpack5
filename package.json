@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Ankera/webpack5#readme",
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",

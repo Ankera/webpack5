@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>webpack5</title>
 
-</head>
+<script defer src="main.js"></script></head>
 
 <body>
   hello world
@@ -16,5 +16,13 @@
   <div class="container">111</div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+
+<script>
+  fetch('http://localhost:3002/api/users').then(data => {
+    console.log(data)
+  }).then(res => {
+    console.log(res)
+  })
+</script>
 
 </html>
