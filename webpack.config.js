@@ -12,9 +12,9 @@ module.exports = {
   devtool: false,
   mode: "development",
   // devtool: 'source-map',
-  // devServer: {
-
-  // },
+  devServer: {
+    port: 3002
+  },
   // module: {},
   plugins: [
     new CleanWebpackPlugin({
