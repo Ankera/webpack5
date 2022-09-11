@@ -1,3 +1,7 @@
+/**
+ * COMMONJS 加载 EsModule
+ */
+
 (function () {
   var modules = {
     "./src/title.js": function (module, exports, require) {

@@ -1,15 +1,10 @@
 (function () {
   var __webpack_modules__ = {
-    "./src/title.js": function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-      __webpack_require__.r(__webpack_exports__);
-      __webpack_require__.d(__webpack_exports__, {
-        "age": function () {
-          return age;
-        }
-      });
-      __webpack_exports__["default"] = 'title';
-      const age = 18;
+    "./src/title.js": function (module) {
+      module.exports = {
+        title: 'title',
+        age: 18
+      };
     }
   };
   var __webpack_module_cache__ = {};
@@ -24,30 +19,54 @@
     __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
     return module.exports;
   }
-  __webpack_require__.d = function (exports, definition) {
-    for (var key in definition) {
-      if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-        Object.defineProperty(exports, key, {
-          enumerable: true,
-          get: definition[key]
+  !function () {
+    __webpack_require__.n = function (module) {
+      var getter = module && module.__esModule ? function () {
+        return module['default'];
+      } : function () {
+        return module;
+      };
+      __webpack_require__.d(getter, {
+        a: getter
+      });
+      return getter;
+    };
+  }();
+  !function () {
+    __webpack_require__.d = function (exports, definition) {
+      for (var key in definition) {
+        if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+          Object.defineProperty(exports, key, {
+            enumerable: true,
+            get: definition[key]
+          });
+        }
+      }
+    };
+  }();
+  !function () {
+    __webpack_require__.o = function (obj, prop) {
+      return Object.prototype.hasOwnProperty.call(obj, prop);
+    };
+  }();
+  !function () {
+    __webpack_require__.r = function (exports) {
+      if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+        Object.defineProperty(exports, Symbol.toStringTag, {
+          value: 'Module'
         });
       }
-    }
-  };
-  __webpack_require__.o = function (obj, prop) {
-    return Object.prototype.hasOwnProperty.call(obj, prop);
-  };
-  __webpack_require__.r = function (exports) {
-    Object.defineProperty(exports, Symbol.toStringTag, {
-      value: 'Module'
-    });
-    Object.defineProperty(exports, '__esModule', {
-      value: true
-    });
-  };
+      Object.defineProperty(exports, '__esModule', {
+        value: true
+      });
+    };
+  }();
   var __webpack_exports__ = {};
   !function () {
-    const title = __webpack_require__("./src/title.js");
-    console.log(title);
+    "use strict";
+    __webpack_require__.r(__webpack_exports__);
+    var _title__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/title.js");
+    var _title__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_title__WEBPACK_IMPORTED_MODULE_0__);
+    console.log(_title__WEBPACK_IMPORTED_MODULE_0___default());
   }();
 })();

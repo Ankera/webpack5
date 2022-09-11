@@ -1,8 +1,13 @@
-// const age = 18
+// // const age = 18
 
-// exports = age
+// // exports = age
 
-// module.exports = 'title';
+// // module.exports = 'title';
 
-export default 'title';
-export const age = 18;
+// export default 'title';
+// export const age = 18;
+
+module.exports = {
+  title: 'title',
+  age: 18
+}
