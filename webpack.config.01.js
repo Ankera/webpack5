@@ -1,3 +1,6 @@
+/**
+ * webpack 基本知识 2022-09-13 01:24
+ */
 const path = require('path');
 const webpack = require('webpack'); // 访问内置的插件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
