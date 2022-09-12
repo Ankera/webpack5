@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/Ankera/webpack5#readme",
   "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/types": "^7.19.0",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
