@@ -16,6 +16,24 @@ module.exports = {
     entry1: './src/entry1.js',
     entry2: './src/entry2.js'
   },
+  output: {
+    path: path.join(__dirname, 'distWepack'),
+    filename: '[name].js',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: [
+          path.resolve(__dirname, 'webpack/loader/log1.js'),
+          path.resolve(__dirname, 'webpack/loader/log2.js'),
+        ]
+      }
+    ]
+  },
   plugins: [
     new RunPlugin(),
     new DonePlugin(),

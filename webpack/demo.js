@@ -4,5 +4,5 @@ const compiler = webpack(options);
 
 
 compiler.run((err, stat) => {
-  console.log('successful')
+  // console.log('successful', stat.toJson());
 });

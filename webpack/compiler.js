@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path').posix;
+const { stat } = require('fs/promises');
 const { SyncHook } = require('tapable');
 const Compilation = require('./compilation');
 
@@ -20,15 +23,30 @@ class Compiler {
   // 4. 执行对象的 run 方法开始编译
   run (callback) {
     this.hooks.run.call();
+    const _this = this;
 
     function onCompiled (err, stats, fileDependencies) {
-      console.log('onCompiled', err, stats, fileDependencies)
+      // 10. 在确定好输出内容后，根据配置输出的路径和文件名，把文件内容写入到文件系统
+      for (const filename in stats.assets) {
+        const filePath = path.join(_this.options.output.path, filename);
+        fs.mkdir(_this.options.output.path, { recursive: true }, function () {
+          fs.writeFileSync(filePath, stats.assets[filename], 'utf8');
+        })
+      }
+      callback(null, {
+        toJson: () => stats
+      });
+
+      fileDependencies.forEach(fileDependency => {
+        fs.watch(fileDependency, () => {
+          _this.compile(onCompiled);
+        })
+      })
     }
+
     this.compile(onCompiled);
 
     this.hooks.done.call();
-
-    // callback();
   }
 
   compile (onCompiled) {

@@ -21,6 +21,9 @@
   "homepage": "https://github.com/Ankera/webpack5#readme",
   "devDependencies": {
     "@babel/core": "^7.19.0",
+    "@babel/generator": "^7.19.0",
+    "@babel/parser": "^7.19.0",
+    "@babel/traverse": "^7.19.0",
     "@babel/types": "^7.19.0",
     "babel-loader": "^8.2.5",
     "babel-plugin-import": "^1.13.5",
