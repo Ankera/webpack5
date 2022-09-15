@@ -15,10 +15,16 @@
 //   })
 // })
 
-import { flatten } from 'lodash';
+// import { flatten } from 'lodash';
 
 
-console.log('hello world');
+// console.log('hello world');
 
 
 // console.log(flatten([1, 2, [3, 4, 5, [7, 5, 4]]]))
+
+require('./title');
+
+const sum = (a, b) => a + b;
+
+console.log('求和sum', sum(1, 2));

@@ -1,41 +1,55 @@
 /**
- * webpack 工作流程 2022-09-14 02:00
+ * webpack 工作流程 2022-09-15 00:56
  * @author zimu
  */
 
+/**
+ * loader 叠加的顺序
+ * post + inline + normal + pre
+ */
+
 const path = require('path');
-const RunPlugin = require('./webpack/plugins/run-plugin');
-const DonePlugin = require('./webpack/plugins/done-plugin');
 
 module.exports = {
+  entry: './src/indexLoader.js',
   mode: 'development',
-  devtool: false,
-  entry: {
-    // entry1: path.join(__dirname, './src/entry1.js'),
-    // entry2: path.join(__dirname, './src/entry2.js'),
-    entry1: './src/entry1.js',
-    entry2: './src/entry2.js'
-  },
   output: {
-    path: path.join(__dirname, 'distWepack'),
-    filename: '[name].js',
+    path: path.resolve(__dirname, 'distLoaders'),
+    filename: 'main.js'
   },
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+  resolveLoader: {
+    alias: {
+      "inline1-loader": path.resolve(__dirname, 'loaders/inline1-loader.js'),
+      "inline2-loader": path.resolve(__dirname, 'loaders/inline2-loader.js'),
+    },
+    modules: ['node_modules', 'loaders']
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
+        // enforce: 'normal', // 默认
         use: [
-          path.resolve(__dirname, 'webpack/loader/log1.js'),
-          path.resolve(__dirname, 'webpack/loader/log2.js'),
+          path.resolve(__dirname, 'loaders/normal1-loader.js'),
+          path.resolve(__dirname, 'loaders/normal2-loader.js'),
         ]
-      }
+      },
+      {
+        test: /\.js$/,
+        enforce: 'post', // 后置
+        use: [
+          path.resolve(__dirname, 'loaders/post1-loader.js'),
+          path.resolve(__dirname, 'loaders/post2-loader.js'),
+        ]
+      },
+      {
+        test: /\.js$/,
+        enforce: 'pre', // 前置
+        use: [
+          path.resolve(__dirname, 'loaders/pre1-loader.js'),
+          path.resolve(__dirname, 'loaders/pre2-loader.js'),
+        ]
+      },
     ]
-  },
-  plugins: [
-    new RunPlugin(),
-    new DonePlugin(),
-  ]
+  }
 }

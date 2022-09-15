@@ -43,8 +43,8 @@ module.exports = {
       //       },
       //     },
       //     'postcss-loader',
-      //     // path.resolve(__dirname, 'loaders', 'loader1.js'),
-      //     // path.resolve(__dirname, 'loaders', 'loader2.js'),
+      //     // path.resolve(__dirname, 'loadersTest', 'loader1.js'),
+      //     // path.resolve(__dirname, 'loadersTest', 'loader2.js'),
       //   ],
       // },
       // {
