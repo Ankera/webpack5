@@ -1,9 +1,4 @@
 /**
- * webpack 工作流程 2022-09-15 00:56
- * @author zimu
- */
-
-/**
  * loader 叠加的顺序
  * post + inline + normal + pre
  */

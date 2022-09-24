@@ -28,7 +28,7 @@ const rules = [
 
 const request = `inline1-loader!inline2-loader!${entryFile}`;
 
-const parts = request.split('!');
+const parts = request.replace(/^-?!+/, '').split('!');
 
 const resource = parts.pop();
 
@@ -51,7 +51,22 @@ rules.forEach(rule => {
   }
 });
 
-let loaders = [...postLoaders, ...inlineLoaders, ...normalLoaders, ...prelLoaders];
+let loaders = [];
+/**
+ * -! 不要普通 normal & 前置 pre
+ * ! 不要普通 normal
+ * !! 只要内敛 pre
+ */
+if (request.startsWith('!!')) {
+  loaders = inlineLoaders;
+} else if (request.startsWith('-!')) {
+  loaders = [...postLoaders, ...inlineLoaders];
+} else if (request.startsWith('!')) {
+  loaders = [...postLoaders, ...inlineLoaders, ...prelLoaders];
+} else {
+  loaders = [...postLoaders, ...inlineLoaders, ...normalLoaders, ...prelLoaders];
+}
+
 
 loaders = loaders.map(loader => resolveLoader(loader));
 
@@ -64,4 +79,4 @@ runLoaders({
   console.log(result.resourceBuffer.toString('utf-8'));
 })
 
-console.log(loaders)
+// console.log(loaders)
