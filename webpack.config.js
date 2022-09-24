@@ -1,50 +1,40 @@
 /**
- * loader 叠加的顺序
- * post + inline + normal + pre
+ * 实现 babel-loader
  */
 
 const path = require('path');
 
 module.exports = {
-  entry: './src/indexLoader.js',
-  mode: 'development',
+  entry: './src/indexSum.js',
   output: {
-    path: path.resolve(__dirname, 'distLoaders'),
-    filename: 'main.js'
+    path: path.resolve(__dirname, 'distSum'),
+    filename: 'indexSum.js'
   },
+  devtool: false,
+  mode: 'development',
   resolveLoader: {
     alias: {
-      "inline1-loader": path.resolve(__dirname, 'loaders/inline1-loader.js'),
-      "inline2-loader": path.resolve(__dirname, 'loaders/inline2-loader.js'),
-    },
-    modules: ['node_modules', 'loaders']
+      'babel-loader': path.resolve(__dirname, 'loaders', 'babel-loader')
+    }
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        // enforce: 'normal', // 默认
-        use: [
-          path.resolve(__dirname, 'loaders/normal1-loader.js'),
-          path.resolve(__dirname, 'loaders/normal2-loader.js'),
-        ]
-      },
-      {
-        test: /\.js$/,
-        enforce: 'post', // 后置
-        use: [
-          path.resolve(__dirname, 'loaders/post1-loader.js'),
-          path.resolve(__dirname, 'loaders/post2-loader.js'),
-        ]
-      },
-      {
-        test: /\.js$/,
-        enforce: 'pre', // 前置
-        use: [
-          path.resolve(__dirname, 'loaders/pre1-loader.js'),
-          path.resolve(__dirname, 'loaders/pre2-loader.js'),
-        ]
-      },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            // presets: [["@babel/env", {
+            //   targets: {
+            //     "chrome": "58",
+            //     "ie": "11"
+            //   }
+            // }]],
+            presets: ['@babel/preset-env'],
+            plugins: []
+          }
+        }
+      }
     ]
   }
 }

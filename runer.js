@@ -78,5 +78,3 @@ runLoaders({
 }, (err, result) => {
   console.log(result.resourceBuffer.toString('utf-8'));
 })
-
-// console.log(loaders)
