@@ -3,4 +3,10 @@ function loader (source) {
   return source + '//inline1';
 }
 
+// loader.pitch = function () {
+
+// }
+
+// loader.row = false;
+
 module.exports = loader;

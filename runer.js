@@ -76,5 +76,6 @@ runLoaders({
   context: { name: "loader" },
   readResource: fs.readFile.bind(fs)
 }, (err, result) => {
+  console.log(result.request)
   console.log(result.resourceBuffer.toString('utf-8'));
 })
