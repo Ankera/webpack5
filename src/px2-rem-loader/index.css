@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#root {
+  width: 750px;
+  height: 750px; 
+  background-color: green;
+  color: red;
+}
+
+#container {
+  width: 750px;
+  height: 750px;
+  background-color: orange;
+  color: red;
+}
+
+
+.hello {
+  font-size: 32px;
+}

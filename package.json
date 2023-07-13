@@ -6,7 +6,9 @@
   "scripts": {
     "prod": "webpack",
     "build": "webpack serve ",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "devPxRem": "webpack-dev-server --config webpack.config.px2.rem",
+    "buildPxRem": "webpack --config webpack.config.px2.rem"
   },
   "repository": {
     "type": "git",
@@ -26,11 +28,13 @@
     "@babel/preset-env": "^7.19.1",
     "@babel/traverse": "^7.19.0",
     "@babel/types": "^7.19.0",
+    "amfe-flexible": "^2.2.1",
     "babel-loader": "^8.2.5",
     "babel-plugin-import": "^1.13.5",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
+    "css": "^3.0.0",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "less-loader": "^11.0.0",
@@ -39,6 +43,8 @@
     "postcss": "^8.4.16",
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "^7.8.1",
+    "px2rem": "^0.5.0",
+    "px2rem-loader": "^0.1.9",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
