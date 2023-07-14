@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin")
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
   mode: "development",
@@ -14,7 +14,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    hot: true
+    hot: true,
   },
   module: {
     rules: [
@@ -37,11 +37,15 @@ module.exports = {
 
     // 向主机提供服务
     new ModuleFederationPlugin({
-        filename: "remoteEntry.js",
-        name: 'remote',
-        exposes: {
-            './NewList': './src/newList'
-        }
-    })
+      filename: "remoteEntry.js",
+      name: "remote",
+      exposes: {
+        "./NewList": "./src/newList",
+      },
+      shared: {
+        react: "^18.2.0",
+        "react-dom": "^18.2.0",
+      },
+    }),
   ],
 };
