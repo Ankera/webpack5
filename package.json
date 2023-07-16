@@ -6,7 +6,9 @@
   "scripts": {
     "prod": "webpack",
     "build": "webpack serve ",
-    "dev": "webpack-dev-server",
+    "dev03": "webpack-dev-server --config webpack.config.03.js",
+    "dev": "webpack-dev-server -w",
+    "devTest": "webpack-dev-server --config webpack.config.05.js",
     "devPxRem": "webpack-dev-server --config webpack.config.px2.rem",
     "buildPxRem": "webpack --config webpack.config.px2.rem"
   },
