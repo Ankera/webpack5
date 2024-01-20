@@ -22,6 +22,7 @@ module.exports = {
   resolve: {
     extensions: [".jsx", ".js", ".tsx", ".ts"],
   },
+  stats: 'normal', // 或者 'normal'、'verbose'
   module: {
     rules: [
       {
