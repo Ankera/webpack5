@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require('webpack')
+const WebpackBar = require('webpackbar')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 console.log('NODE_ENV', process.env.NODE_ENV)
@@ -22,19 +23,21 @@ module.exports = {
   resolve: {
     extensions: [".jsx", ".js", ".tsx", ".ts"],
   },
-  stats: 'normal', // 或者 'normal'、'verbose'
+  stats: 'minimal', // 或者 'normal'、'verbose'
   module: {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/, // 匹配.ts, tsx文件
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          // options: {
-          //   // 预设执行顺序由右往左,所以先处理ts,再处理jsx
-          //   presets: ["@babel/preset-react", "@babel/preset-typescript"],
-          // },
-        },
+        use: [
+          {
+            loader: "babel-loader",
+            // options: {
+            //   // 预设执行顺序由右往左,所以先处理ts,再处理jsx
+            //   presets: ["@babel/preset-react", "@babel/preset-typescript"],
+            // },
+          }
+        ],
       },
       {
         test: /.(css|less)$/, //匹配 css和less 文件
@@ -91,6 +94,8 @@ module.exports = {
     ],
   },
   plugins: [
+    new WebpackBar(),
+    
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../public/index.html"), // 模板取定义root节点的模板
       inject: true, // 自动注入静态资源
