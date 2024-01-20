@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,  // 跳过类型声明文件的类型检查,为了加速编译过程，特别是在大型项目中使用大量声明文件的情况下
+    "esModuleInterop": true,
+    "allowJs": true, // 允许 ts 编译器编译 js 文件  
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react", // 添加这一行，指定 JSX 使用的模式，可以是 "react" 或 "preserve"
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true, // 开启装饰器使用
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.js"],
+  "exclude": ["node_modules"]
+}
