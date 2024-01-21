@@ -3,8 +3,8 @@ const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-console.log('NODE_ENV', process.env.NODE_ENV)
-console.log('BASE_ENV', process.env.BASE_ENV)
+console.log('====NODE_ENV====', process.env.NODE_ENV)
+console.log('====BASE_ENV====', process.env.BASE_ENV)
 
 module.exports = {
   entry: path.join(__dirname, "../src/index.tsx"), // 入口文件
@@ -131,8 +131,9 @@ module.exports = {
   plugins: [
     new WebpackBar(),
 
-    new webpack.IgnorePlugin({
-      resourceRegExp: /variables\.less$/, // 替换为实际路径
+    // 每个 tsx 文件自动引入 import isarray from 'isarray';
+    new webpack.ProvidePlugin({
+      isarray: "isarray",
     }),
     
     new HtmlWebpackPlugin({

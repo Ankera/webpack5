@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import isarray from 'isarray';
+// import isarray from 'isarray';
 import logo from '@/assets/11.png'
 import Desc from '@/Desc';
 import styles from './App.less';
@@ -19,6 +19,7 @@ function App() {
     const arr = [1,2,3,4,5];
     func().then(data => {
       console.log('=================', data, [...arr])
+      console.log('====ar====', isarray(arr));
     })
   }, [])
 
