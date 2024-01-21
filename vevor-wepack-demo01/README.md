@@ -15,3 +15,10 @@ pnpm i webpack webpack-cli -D
 ```
 https://github.com/xiongqianhua/backend-management-system/blob/main/webpack.config.js
 ```
+
+
+### 要开发的插件
+```
+业务中禁用 color: red
+资源预加载
+```

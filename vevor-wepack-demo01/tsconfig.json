@@ -18,7 +18,7 @@
     "isolatedModules": true,
     "noImplicitAny": false,
     "experimentalDecorators": true, // 开启装饰器使用
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }

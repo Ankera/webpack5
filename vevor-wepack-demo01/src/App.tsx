@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import logo from './assets/11.png'
-import Desc from './Desc';
-import './App.less';
+import logo from '@/assets/11.png'
+import Desc from '@/Desc';
+import styles from './App.less';
 
 //@ts-ignore
 console.log('NODE_ENV===============', process.env.NODE_ENV)
@@ -21,7 +21,7 @@ function App() {
   }, [])
 
   return (
-    <div className='app'>
+    <div className={styles.app}>
       <h2>hello react !!24333 </h2>
       <img src={logo} alt="" />
       <Desc />

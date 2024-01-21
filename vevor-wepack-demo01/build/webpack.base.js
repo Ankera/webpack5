@@ -22,6 +22,9 @@ module.exports = {
   mode: "development",
   resolve: {
     extensions: [".jsx", ".js", ".tsx", ".ts"],
+    alias: {
+      '@': path.join(__dirname, '../src')
+    }
   },
   stats: 'minimal', // 或者 'normal'、'verbose'
   module: {
@@ -40,23 +43,54 @@ module.exports = {
         ],
       },
       {
-        test: /.(css|less)$/, //匹配 css和less 文件
+        test: /.css$/, //匹配 css和less 文件
         use: [
           'style-loader',
           'css-loader',
+          // {
+          //   loader: 'css-loader',
+          //   options: {
+          //     modules: true // 开启CSS模块化
+          //   }
+          // },
+          'postcss-loader',
+        ]
+      },
+      {
+        test: /.less$/, //匹配 css和less 文件
+        use: [
+          'style-loader',
           {
-            loader: 'postcss-loader',
+            loader: 'css-loader',
             options: {
-              postcssOptions: {
-                plugins: ['autoprefixer']
-              }
+              // import: true, 
+              modules: true, // 开启CSS模块化
+
+              /**
+               * 比如有的less文件引入  
+               *  @import 'common/css/variable.less';
+               * 想让 variable.less 也被编译，执行 'postcss-loader' & 'less-loader'
+               */
+              // importLoaders: 2,
             }
           },
+          'postcss-loader',
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     postcssOptions: {
+          //       plugins: ['autoprefixer']
+          //     }
+          //   }
+          // },
           'less-loader'
         ]
       },
       {
         test:/.(png|jpg|jpeg|gif|svg)$/, // 匹配图片文件
+        /**
+         * 
+         */
         type: "asset", // type选择asset
         parser: {
           dataUrlCondition: {

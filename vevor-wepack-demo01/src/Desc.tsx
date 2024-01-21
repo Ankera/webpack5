@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import styles from './Desc.less';
 
 // 装饰器为,组件添加age属性
 function addAge(Target: Function) {
@@ -13,7 +14,7 @@ class Desc extends PureComponent {
 
   render() {
     return (
-      <h2>我是类组件-00--{this.age}</h2>
+      <div className={styles.desc}>我是类组件-00--{this.age}</div>
     )
   }
 }
