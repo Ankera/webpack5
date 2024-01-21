@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
+import isarray from 'isarray';
 import logo from '@/assets/11.png'
 import Desc from '@/Desc';
 import styles from './App.less';
+import '@/common/css/base.css';
 
 //@ts-ignore
 console.log('NODE_ENV===============', process.env.NODE_ENV)
@@ -24,6 +26,7 @@ function App() {
     <div className={styles.app}>
       <h2>hello react !!24333 </h2>
       <img src={logo} alt="" />
+      <div className='common'>common</div>
       <Desc />
     </div>
   )

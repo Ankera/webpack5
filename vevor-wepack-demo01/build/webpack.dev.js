@@ -6,7 +6,7 @@ const baseConfig = require("./webpack.base.js");
 // 合并公共配置,并添加开发环境配置
 module.exports = merge(baseConfig, {
   mode: "development", // 开发模式,打包更加快速,省了代码优化步骤
-  watch: true,
+  // watch: true,
   devtool: 'eval-source-map',
   devServer: {
     port: 3000, // 服务端口号

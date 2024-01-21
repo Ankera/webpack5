@@ -19,6 +19,6 @@ https://github.com/xiongqianhua/backend-management-system/blob/main/webpack.conf
 
 ### 要开发的插件
 ```
-业务中禁用 color: red
+业务中禁用 color: red           https://postcss.org/docs/postcss-plugins
 资源预加载
 ```

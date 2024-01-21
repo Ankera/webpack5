@@ -23,7 +23,8 @@ module.exports = {
   resolve: {
     extensions: [".jsx", ".js", ".tsx", ".ts"],
     alias: {
-      '@': path.join(__dirname, '../src')
+      '@': path.join(__dirname, '../src'),
+      // 'common-variables': path.resolve(__dirname, 'common/css/variable.less'),
     }
   },
   stats: 'minimal', // 或者 'normal'、'verbose'
@@ -46,13 +47,13 @@ module.exports = {
         test: /.css$/, //匹配 css和less 文件
         use: [
           'style-loader',
-          'css-loader',
-          // {
-          //   loader: 'css-loader',
-          //   options: {
-          //     modules: true // 开启CSS模块化
-          //   }
-          // },
+          // 'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false // 不开启CSS模块化
+            }
+          },
           'postcss-loader',
         ]
       },
@@ -129,6 +130,10 @@ module.exports = {
   },
   plugins: [
     new WebpackBar(),
+
+    new webpack.IgnorePlugin({
+      resourceRegExp: /variables\.less$/, // 替换为实际路径
+    }),
     
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../public/index.html"), // 模板取定义root节点的模板
