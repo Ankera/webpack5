@@ -21,6 +21,10 @@ function App() {
       console.log('=================', data, [...arr])
       console.log('====ar====', isarray(arr));
     })
+
+    window.fetch('/api/users').then(res => res.json()).then(res => {
+      console.log('=====res', res);
+    })
   }, [])
 
   return (
