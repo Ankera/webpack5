@@ -1,5 +1,11 @@
 # Browsers that we support
-last 2 versions
-> 1%
-IE 11
-chrome 35 # 兼容chrome 35
+# last 2 versions
+# > 1%
+# IE 11
+# chrome 35 # 兼容chrome 35
+
+Firefox >= 100
+Chrome >= 100
+Safari >= 15
+
+# IE 11

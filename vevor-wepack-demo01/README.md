@@ -6,7 +6,7 @@ npm init -y
 
 npx tsc --init
 
-pnpm i webpack webpack-cli -D
+pnpm i
 
 ```
 
@@ -21,4 +21,9 @@ https://github.com/xiongqianhua/backend-management-system/blob/main/webpack.conf
 ```
 业务中禁用 color: red           https://postcss.org/docs/postcss-plugins
 资源预加载
+```
+
+### 下一集
+```
+课时77  14
 ```
