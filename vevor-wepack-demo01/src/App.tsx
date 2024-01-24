@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
+import '@/common/css/base.css';
 // import isarray from 'isarray';
 import logo from '@/assets/11.png'
 import Desc from '@/Desc';
+import Test01  from '@/components/test/Test01';
+import Test02  from '@/components/test/Test02';
 import styles from './App.less';
-import '@/common/css/base.css';
+
 
 //@ts-ignore
 console.log('NODE_ENV===============', process.env.NODE_ENV)
@@ -22,9 +25,9 @@ function App() {
       console.log('====ar====', isarray(arr));
     })
 
-    window.fetch('/api/users').then(res => res.json()).then(res => {
-      console.log('=====res', res);
-    })
+    // window.fetch('/api/users').then(res => res.json()).then(res => {
+    //   console.log('=====res', res);
+    // })
   }, [])
 
   return (
@@ -33,6 +36,10 @@ function App() {
       <img src={logo} alt="" />
       <div className='common'>common</div>
       <Desc />
+      <hr />
+      <Test01 />
+      <hr />
+      <Test02 />
     </div>
   )
 }

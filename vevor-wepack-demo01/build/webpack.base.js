@@ -3,6 +3,9 @@ const webpack = require("webpack");
 const WebpackBar = require("webpackbar");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const isDev = process.env.NODE_ENV === 'development' // 是否是开发模式
 
 module.exports = {
   entry: path.join(__dirname, "../src/index.tsx"), // 入口文件
@@ -11,6 +14,10 @@ module.exports = {
     path: path.join(__dirname, "../dist"), // 打包结果输出路径
     clean: true, // webpack4需要配置clean-webpack-plugin来删除dist文件,webpack5内置了
     publicPath: "/", // 打包后文件的公共前缀路径
+
+    // libraryExport: 'add',
+    // library: 'calculator',
+    // libraryTarget: 'var'
   },
   externals: {
     // 检查是否有这样的配置，将其删除或注释掉
@@ -49,7 +56,9 @@ module.exports = {
       {
         test: /.css$/, //匹配 css和less 文件
         use: [
-          "style-loader",
+          // "style-loader",
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
+          // MiniCssExtractPlugin.loader,
           // 'css-loader',
           {
             loader: "css-loader",
@@ -63,7 +72,9 @@ module.exports = {
       {
         test: /.less$/, //匹配 css和less 文件
         use: [
-          "style-loader",
+          // "style-loader",
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -135,8 +146,7 @@ module.exports = {
     new WebpackBar(),
 
     new CleanWebpackPlugin({
-      verbose: true,
-      dry: false,
+      cleanOnceBeforeBuildPatterns: []
     }),
 
     // 每个 tsx 文件自动引入 import isarray from 'isarray';
