@@ -14,15 +14,15 @@ module.exports = {
     path: path.join(__dirname, "../dist"), // 打包结果输出路径
     clean: true, // webpack4需要配置clean-webpack-plugin来删除dist文件,webpack5内置了
     publicPath: "/", // 打包后文件的公共前缀路径
-
-    // libraryExport: 'add',
-    // library: 'calculator',
-    // libraryTarget: 'var'
   },
   externals: {
     // 检查是否有这样的配置，将其删除或注释掉
     react: "React",
     "react-dom": "ReactDOM",
+  },
+  cache: {
+    type: 'filesystem',
+    cacheDirectory: path.resolve(__dirname, '../node_modules/.cache/webpack')
   },
   resolve: {
     extensions: [".jsx", ".js", ".tsx", ".ts"],
@@ -44,6 +44,12 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/, // 匹配.ts, tsx文件
         exclude: /node_modules/,
         use: [
+          {
+            loader: 'thread-loader',
+            options: {
+              workers: 3
+            }
+          },
           {
             loader: "babel-loader",
             // options: {
@@ -158,6 +164,9 @@ module.exports = {
       template: path.resolve(__dirname, "../public/index.html"), // 模板取定义root节点的模板
       inject: true, // 自动注入静态资源
     }),
+
+    // TODO 性能提升待定
+    // new webpack.optimize.ModuleConcatenationPlugin(),
 
     new webpack.DefinePlugin({
       "process.env.BASE_ENV": JSON.stringify(process.env.BASE_ENV),

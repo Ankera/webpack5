@@ -47,6 +47,7 @@
     "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^3.3.4",
     "terser-webpack-plugin": "^5.3.10",
+    "thread-loader": "^4.0.2",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
