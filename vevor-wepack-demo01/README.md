@@ -14,6 +14,8 @@ pnpm i
 ### 查看文献
 ```
 https://github.com/xiongqianhua/backend-management-system/blob/main/webpack.config.js
+
+https://juejin.cn/post/7236383034559529017#heading-69
 ```
 
 
@@ -23,7 +25,15 @@ https://github.com/xiongqianhua/backend-management-system/blob/main/webpack.conf
 资源预加载
 ```
 
+### stylelint
+```
+
+.stylelint
+.stylelintrc
+
+```
+
 ### 下一集
 ```
-课时80  14
+第四章
 ```

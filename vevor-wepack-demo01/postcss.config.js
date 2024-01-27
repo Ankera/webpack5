@@ -32,7 +32,7 @@ module.exports = {
       将新的语法转换为当前浏览器支持的代码，然后 autoprefixer 会为其添加前缀，
       确保在目标浏览器中正确运行。
      */
-    'postcss-preset-env',
+    'postcss-preset-env', // .browserslistrc 这里读取配置文件
     // 不同平台兼容性
     'autoprefixer',
 

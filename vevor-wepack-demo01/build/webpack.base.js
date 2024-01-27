@@ -85,8 +85,10 @@ module.exports = {
             loader: "css-loader",
             options: {
               // import: true,
-              modules: true, // 开启CSS模块化
-
+              // modules: true, // 开启CSS模块化
+              modules: {
+                localIdentName: '[name]__[hash:5]'
+              }
               /**
                * 比如有的less文件引入
                *  @import 'common/css/variable.less';
@@ -104,7 +106,17 @@ module.exports = {
           //     }
           //   }
           // },
-          "less-loader",
+          {
+            loader: "less-loader",
+            options: {
+              // lessOptions: {
+              //   // modifyVars: {
+              //   //   'common-variables': `"${path.resolve(__dirname, '/srccommon/css/variable.less')}"`,
+              //   // },
+              // },
+              additionalData: '@import "common/css/variable.less";',
+            }
+          }
         ],
       },
       {
